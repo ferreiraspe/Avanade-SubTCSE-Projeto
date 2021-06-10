@@ -2,4 +2,4 @@
 Projeto criado durante o treinamento full stack
 
 ## dia 1
-Criação do projetoIerddan_c@yahoo.com
+Criação do projeto
