@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Aggregates\EmployeeRole\Interfaces\Services\" />
-    <Folder Include="Aggregates\EmployeeRole\Interfaces\Repository\" />
-    <Folder Include="Aggregates\EmployeeRole\Validators\" />
-    <Folder Include="Aggregates\EmployeeRole\Services\" />
+    <PackageReference Include="FluentValidation" Version="10.2.3" />
   </ItemGroup>
 
 </Project>
