@@ -20,14 +20,14 @@ namespace Avanade.SubTCSE.Projeto.Infra.Data.Repositories.Base.MongoDB
 
             MongoClient mongoClient = new MongoClient(settings: mongoClientSettings);
 
-            IMongoDatabase mongoDatabase = mongoClient.GetDatabase("");
+            _mongoDatabase = mongoClient.GetDatabase("");
 
-            mongoDatabase.GetCollection
+
         }
 
         public IMongoCollection<TEntity> GetColletion<TEntity>(string collection)
         {
-            throw new System.NotImplementedException();
+            return _mongoDatabase.GetCollection<TEntity>(name: collection);
         }
     }
 }
