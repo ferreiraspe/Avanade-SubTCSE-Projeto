@@ -2,7 +2,7 @@
 
 namespace Avanade.SubTCSE.Projeto.Domain.Aggregates.Employee.Interfaces.Repositories
 {
-    interface IEmployeeRepository : IBaseRepository<Entities.Employee, string>
+    public interface IEmployeeRepository : IBaseRepository<Entities.Employee, string>
     {
 
     }

@@ -2,7 +2,7 @@
 
 namespace Avanade.SubTCSE.Projeto.Application.AutoMapperConfig.Profiles.EmployeeRole
 {
-    class EmployeeRoleProfile : Profile
+    public class EmployeeRoleProfile : Profile
     {
         public EmployeeRoleProfile()
         {
