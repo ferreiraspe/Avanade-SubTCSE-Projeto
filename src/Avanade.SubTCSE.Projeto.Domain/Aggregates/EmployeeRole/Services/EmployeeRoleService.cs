@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Avanade.SubTCSE.Projeto.Domain.Aggregates.EmployeeRole.Services
 {
-    class EmployeeRoleService : IEmployeeRoleService
+    public class EmployeeRoleService : IEmployeeRoleService
     {
         public async Task<Entities.EmployeeRole> AddEmployeeRole(Entities.EmployeeRole employeeRole)
         {
