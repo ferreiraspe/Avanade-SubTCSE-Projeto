@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Avanade.SubTCSE.Projeto.Application.AutoMapperConfig.Profiles.EmployeeRole
+namespace Avanade.SubTCSE.Projeto.Application.AutoMapperConfigs.Profiles.EmployeeRole
 {
     public class EmployeeRoleProfile : Profile
     {
@@ -12,6 +12,7 @@ namespace Avanade.SubTCSE.Projeto.Application.AutoMapperConfig.Profiles.Employee
             CreateMap<Domain.Aggregates.EmployeeRole.Entities.EmployeeRole, Dtos.EmployeeRole.EmployeeRoleDto>()
                 .ForMember(dest => dest.Identificador, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Cargo, opt => opt.MapFrom(src => src.RoleName))
+                .ForMember(dest => dest.ValidationResult, opt => opt.MapFrom(src => src.ValidationResult))
                 .ForAllOtherMembers(i => i.Ignore());
         }
     }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Avanade.SubTCSE.Projeto.Application.AutoMapperConfig.Profiles.Employee
+namespace Avanade.SubTCSE.Projeto.Application.AutoMapperConfigs.Profiles.Employee
 {
     public class EmployeeProfile : Profile
     {

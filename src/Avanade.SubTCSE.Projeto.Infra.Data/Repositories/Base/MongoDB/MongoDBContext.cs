@@ -1,16 +1,16 @@
-﻿using Avanade.SubTCSE.Projeto.Domain.Base.MongoDB;
+﻿using Avanade.SubTCSE.Projeto.Domain.Base.Repository.MongoDB;
 using MongoDB.Driver;
 
 namespace Avanade.SubTCSE.Projeto.Infra.Data.Repositories.Base.MongoDB
 {
-    public class MongoDBContext : IMogoDBContext
+    public class MongoDBContext : IMongoDBContext
     {
         private readonly IMongoDatabase _mongoDatabase;
 
         public MongoDBContext()
         {
             MongoClientSettings mongoClientSettings = MongoClientSettings
-                .FromUrl(new MongoUrl(""));
+                .FromUrl(new MongoUrl("mongodb://root:avanade-password@127.0.0.1:27017/admin?authSource=admin"));
 
             mongoClientSettings.SslSettings =
                 new SslSettings()
@@ -20,10 +20,10 @@ namespace Avanade.SubTCSE.Projeto.Infra.Data.Repositories.Base.MongoDB
 
             MongoClient mongoClient = new MongoClient(settings: mongoClientSettings);
 
-            _mongoDatabase = mongoClient.GetDatabase("");
+            _mongoDatabase = mongoClient.GetDatabase("fullstack");
         }
 
-        public IMongoCollection<TEntity> GetColletion<TEntity>(string collection)
+        public IMongoCollection<TEntity> GetCollection<TEntity>(string collection)
         {
             return _mongoDatabase.GetCollection<TEntity>(name: collection);
         }

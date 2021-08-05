@@ -21,6 +21,20 @@ namespace Avanade.SubTCSE.Projeto.Api
         {
             services.AddControllers();
 
+            services.AddApiVersioning(
+                options =>
+                {
+                    //reporting api versions will return the headers "api-suported-versions" and "api-deprecated-versions"
+                    options.ReportApiVersions = true;
+                    options.AssumeDefaultVersionWhenUnspecified = true;
+                    options.DefaultApiVersion = new ApiVersion(1, 1);
+                })
+                .AddVersionedApiExplorer(options =>
+                {
+                    options.GroupNameFormat = "'v'VVV";
+                    options.SubstituteApiVersionInUrl = true;
+                });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Avanade.SubTCSE.Projeto.Api", Version = "v1" });
