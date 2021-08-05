@@ -1,0 +1,6 @@
+projectKey=Avanade.SubTCSE.Projeto.Api
+serverUrl=http://localhost:9000
+serverVersion=9.0.1.46107
+dashboardUrl=http://localhost:9000/dashboard?id=Avanade.SubTCSE.Projeto.Api
+ceTaskId=AXr1OhTRROSxkh_ZCrtr
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXr1OhTRROSxkh_ZCrtr
