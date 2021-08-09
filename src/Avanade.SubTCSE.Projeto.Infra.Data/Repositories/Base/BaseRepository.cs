@@ -25,6 +25,13 @@ namespace Avanade.SubTCSE.Projeto.Infra.Data.Repositories.Base
             return entity;
         }
 
+        public async Task<bool> DeleteByIdAsync(Tid Id)
+        {
+            var result = await _collection.DeleteOneAsync(Builders<TEntity>.Filter.Eq("_id", Id));
+
+            return result.IsAcknowledged;
+        }
+
         public async Task<List<TEntity>> FindAllAsync()
         {
             var all = await _collection.FindAsync(new BsonDocument());

@@ -33,7 +33,12 @@ namespace Avanade.SubTCSE.Projeto.Application.Services.EmployeeRole
             //devolver
             return itemDto;
         }
-                
+
+        public async Task<bool> DeleteByIdAsync(string id)
+        {
+            return await _employeeRoleService.DeleteById(id);
+        }
+
         public async Task<List<EmployeeRoleDto>> FindAllEmployeeRoleAsync()
         {
             var item = await _employeeRoleService.GetAllAsync();

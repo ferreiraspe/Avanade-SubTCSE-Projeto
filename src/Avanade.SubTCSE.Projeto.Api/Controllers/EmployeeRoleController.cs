@@ -31,7 +31,7 @@ namespace Avanade.SubTCSE.Projeto.Api.Controllers
         {
             var item = await _employeeRoleAppService.AddEmployeeRoleAsync(employeeRoleDto);
 
-            if (item.ValidationResult.IsValid)
+            if (!item.ValidationResult.IsValid)
             {
                 return BadRequest(string.Join('\n', item.ValidationResult.Errors));
             }
@@ -62,10 +62,15 @@ namespace Avanade.SubTCSE.Projeto.Api.Controllers
         }
 
         [HttpDelete(template: "{id}")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(EmployeeRoleDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> DeleteById(string id)
         {
             //TODO: Desafio
-            throw new System.Exception();
+            var item = await _employeeRoleAppService.DeleteByIdAsync(id);
+
+            return Ok();
         }
     }
 }

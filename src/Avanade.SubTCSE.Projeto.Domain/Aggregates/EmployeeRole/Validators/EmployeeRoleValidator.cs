@@ -17,7 +17,14 @@ namespace Avanade.SubTCSE.Projeto.Domain.Aggregates.EmployeeRole.Validators
             {
                 RuleFor(x => x.Id)
                 .NotEmpty()
-                .WithMessage("{PropertyName} can not be null");
+                .WithMessage("{PropertyName} can not be empty");
+            });
+
+            RuleSet("DeleteById", () =>
+            {
+                RuleFor(d => d.Id)
+                .NotEmpty()
+                .WithMessage("{PropertyName} can not be empty");
             });
         }
     }
