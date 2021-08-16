@@ -1,3 +1,6 @@
+using Avanade.SubTCSE.Projeto.Application.Interfaces.EmployeeRole;
+using Avanade.SubTCSE.Projeto.Application.Services.EmployeeRole;
+using Avanade.SubTCSE.Projeto.Infra.CrossCutting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +42,8 @@ namespace Avanade.SubTCSE.Projeto.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Avanade.SubTCSE.Projeto.Api", Version = "v1" });
             });
+
+            services.AddRegisterDependenciesInjections();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

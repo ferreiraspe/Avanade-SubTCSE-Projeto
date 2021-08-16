@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Avanade.SubTCSE.Projeto.Application.Dtos.EmployeeRole;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using AutoMapper;
 
 namespace Avanade.SubTCSE.Projeto.Api.Controllers
 {
@@ -16,9 +17,13 @@ namespace Avanade.SubTCSE.Projeto.Api.Controllers
     {
         private readonly IEmployeeRoleAppService _employeeRoleAppService;
 
-        public EmployeeRoleController(IEmployeeRoleAppService employeeRoleAppService)
+        private readonly IMapper _mapper;
+
+        public EmployeeRoleController(IEmployeeRoleAppService employeeRoleAppService,
+                                      IMapper mapper)
         {
             _employeeRoleAppService = employeeRoleAppService;
+            _mapper = mapper;
         }
 
         [HttpPost(Name = "EmployeeRole")]
@@ -69,8 +74,14 @@ namespace Avanade.SubTCSE.Projeto.Api.Controllers
         {
             //TODO: Desafio
             var item = await _employeeRoleAppService.DeleteByIdAsync(id);
+            if (item == true)
+            {
 
-            return Ok();
+                return Ok();
+
+            }
+
+            return BadRequest();
         }
     }
 }
